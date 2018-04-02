@@ -1,0 +1,349 @@
+/*
+Theme Name: BeachVN
+Author: HTeam
+Description: Twenty Seventeen brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device.
+Version: 1.0
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+a:hover {
+  text-decoration: none;
+}
+
+.border {
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+}
+
+.link-gray {
+  color: #212121;
+}
+
+.color-pink {
+  color: #8e44ad;
+}
+
+.color-green {
+  color: #29b260;
+}
+
+.color-red {
+  color: #dc3545;
+}
+
+.align-middle {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+body {
+  padding-top: 84px;
+  background: #eee;
+}
+
+.grid-container {
+  width: 1200px;
+  max-width: none !important;
+  padding-right: .71429rem;
+  padding-left: .71429rem;
+  margin: 0 auto;
+}
+
+.place-hero {
+  background: #fff;
+  height: 277px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.place-media {
+  width: 440px;
+  float: left;
+}
+
+.place-info {
+  margin-left: 440px;
+  padding: 15px 15px 15px 30px;
+  background: #fff;
+}
+
+.place-name {
+  font-size: 1.42857rem;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 3px;
+}
+
+.place-type {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.place-score {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
+
+.place-score-item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  padding: 5px 0;
+}
+
+.place-score-number {
+  font-size: 1.42857rem;
+  font-weight: 700;
+}
+
+.place-score-number.green {
+  color: #29b260;
+}
+
+.place-score-number .black {
+  color: #212121;
+}
+
+.place-score-label {
+  font-size: 13px;
+  color: #757575;
+}
+
+.place-meta-item {
+  margin-bottom: 5px;
+  color: #424242;
+}
+
+.place-meta-item .icon {
+  margin-right: 5px;
+  vertical-align: -10%;
+}
+
+.place-nav {
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.place-nav .nav-link {
+  color: #212121;
+}
+
+.place-nav .nav-link.active {
+  border: none;
+  color: #29b260;
+  font-weight: 700;
+  border-bottom: 2px solid #29b260;
+}
+
+.place-nav .nav-link:focus, .place-nav .nav-link:hover {
+  border: none;
+  color: #29b260;
+}
+
+.story {
+  background: #fefefe;
+  margin-bottom: 10px;
+}
+
+.story .story-body {
+  padding: 15px 15px 0;
+  position: relative;
+}
+
+.story .story-body .story-name {
+  font-size: 1.14286rem;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  padding-right: 30px;
+}
+
+.story .story-body .story-desc {
+  color: #212121;
+  word-wrap: break-word;
+  overflow: hidden;
+  position: relative;
+}
+
+.story-gallery-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 5px 15px;
+}
+
+.story-gallery-container .story-gallery {
+  margin: 0 -5px;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+}
+
+.story-gallery-container .story-gallery-item {
+  width: 25%;
+  float: left;
+  padding: 5px;
+  position: relative;
+}
+
+.story .comment-container {
+  margin-top: 15px;
+  border-radius: 3px;
+  border-top: 1px solid #eee;
+  padding: 0 20px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.story .comment-container .comment-function {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
+.story .comment-container .comment {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  text-align: left;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  font-size: 13px;
+  position: relative;
+}
+
+.story .comment-container .comment .comment-left {
+  margin-right: 15px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.story .comment-container .comment .comment-right {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.story .comment-container .comment .comment-right textarea.comment-write {
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  max-width: 100%;
+  width: 100%;
+  word-break: break-all;
+  background: #fff;
+  cursor: text;
+}
+
+.story .comment-container .comment .comment-avatar {
+  width: 35px;
+}
+
+.story .comment-container .comment .comment-avatar img {
+  border-radius: 50%;
+}
+
+.story .comment-container .comment .comment-content {
+  margin-bottom: 15px;
+  position: relative;
+  padding-right: 20px;
+  min-height: 34px;
+}
+
+.story .comment-container .comment .comment-author {
+  font-weight: 700;
+}
+
+.story .comment-container .comment .comment-content .comment-time-container{
+  margin-top: 5px;
+}
+
+.story .comment-container .comment .comment-content .comment-time-container .comment-time{
+  color: #9e9e9e;
+}
+
+.story .comment-container .comment .comment-content .comment-actions{
+  position: absolute;
+  top: 2px;
+  right: 0;
+  opacity: 0;
+}
+.story .comment-container .comment:hover .comment-actions{
+  opacity: 1;
+}
+
+.porlet {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.place-chart {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.place-chart-item {
+  margin-bottom: 8px;
+}
+
+.place-chart-item span {
+  display: inline-block;
+  width: 45px;
+  font-weight: 700;
+  padding-right: 10px;
+  font-size: 1.14286rem;
+}
+
+.story-place-score {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.story-place-score .story-score-info {
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.place-total {
+  padding: 5px 0 15px;
+}
+
+.place-total-score {
+  font-size: 1.71429rem;
+  font-weight: 700;
+}
+
+.place-total-rate {
+  font-weight: 700;
+}
