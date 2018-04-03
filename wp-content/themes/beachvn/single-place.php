@@ -265,6 +265,9 @@
 							<span class="place-total-score color-green">7.4</span> điểm -
 							<span class="place-total-rate">Khá tốt</span>
 						</div>
+						<button type="button" class="btn btn-primary btn-review">
+							<i class="fas fa-comment"></i> &nbsp; Viết bình luận
+						</button>
 					</div>
 				</div>
 			</div>

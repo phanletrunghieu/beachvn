@@ -15,6 +15,9 @@ if ( post_password_required() ) {
   wp_list_comments( array(
     'max_depth'   => 1,
     'callback'    => function($comment, $args, $depth) {
+			if (strpos($comment->comment_content, 'review:')===0) {
+				return;
+			}
   ?>
   <div id="comment-<?php echo $comment->comment_ID ?>" class="comment">
     <div class="comment-left">

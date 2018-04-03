@@ -178,6 +178,16 @@ function delete_comment() {
 }
 
 /**
+ * return comment_ID when post ajax
+ */
+function comment_ajax($comment_ID, $comment_status){
+	$comment = get_comment($comment_ID);
+	echo json_encode($comment);
+	exit();
+}
+add_action('comment_post', 'comment_ajax', 25, 2);
+
+/**
  * register an API key
  */
 function my_acf_init() {

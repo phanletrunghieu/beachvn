@@ -347,3 +347,7 @@ body {
 .place-total-rate {
   font-weight: 700;
 }
+
+.btn-review {
+  width: 100%;
+}
