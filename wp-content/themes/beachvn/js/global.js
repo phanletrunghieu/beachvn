@@ -112,4 +112,13 @@
     });
   }
   $(".btn-delete-comment").on('click', clickDeleteComment);
+
+  /**
+   * Event change slider
+   */
+  $('input.slider').on('change', e=>{
+    var input=$(e.target);
+    var reviewValue=input.parent(".review-item").find(".review-value");
+    reviewValue.text(input.val());
+  });
 })(jQuery);

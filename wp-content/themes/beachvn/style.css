@@ -204,6 +204,11 @@ body {
   position: relative;
 }
 
+.story-gallery-container .story-gallery-item .story-gallery-image {
+  height: 150px;
+  background-size: cover;
+}
+
 .story .comment-container {
   margin-top: 15px;
   border-radius: 3px;
@@ -350,4 +355,25 @@ body {
 
 .btn-review {
   width: 100%;
+}
+
+.review-item .review-name {
+  width: 20%;
+  display: inline-block;
+}
+.review-item .review-value {
+  width: 10px;
+  display: inline-block;
+  margin-left: 10px;
+}
+#review-slider {
+  width: calc(74% - 10px);
+  display: inline-block;
+}
+#review-slider .slider-selection {
+	background: red;
+}
+#review-slider .slider-handle {
+	background: white;
+  border: 1px solid #bdbdbd;
 }

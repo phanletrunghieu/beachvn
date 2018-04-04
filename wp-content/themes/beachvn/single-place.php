@@ -126,30 +126,13 @@
 
 							<div class="story-gallery-container">
 								<ul class="story-gallery clearfix">
-									<li class="story-gallery-item">
-										<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-620-636426389108241934.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-									</li>
-									<li class="story-gallery-item">
-										<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-404-636426389110117105.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-									</li>
-									<li class="story-gallery-item">
-										<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-479-636426389111210930.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-									</li>
-									<li class="story-gallery-item">
-										<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-824-636418541355833586.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-									</li>
-									<li class="story-gallery-item">
-										<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-620-636426389108241934.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-									</li>
-									<li class="story-gallery-item">
-										<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-404-636426389110117105.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-									</li>
-									<li class="story-gallery-item">
-										<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-479-636426389111210930.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-									</li>
-									<li class="story-gallery-item">
-										<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-824-636418541355833586.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-									</li>
+									<?php
+									$images = get_field('album');
+									foreach( $images as $image ): ?>
+										<li class="story-gallery-item">
+											<div class="story-gallery-image" style="background-image: url(<?php echo $image['url'] ?>);"></div>
+										</li>
+									<?php endforeach; ?>
 								</ul>
 							</div>
 
@@ -163,30 +146,12 @@
 					<div role="tabpanel" class="tab-pane fade in" id="tab-image-video">
 						<div class="story-gallery-container porlet border">
 							<ul class="story-gallery clearfix">
-								<li class="story-gallery-item">
-									<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-620-636426389108241934.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-								</li>
-								<li class="story-gallery-item">
-									<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-404-636426389110117105.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-								</li>
-								<li class="story-gallery-item">
-									<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-479-636426389111210930.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-								</li>
-								<li class="story-gallery-item">
-									<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-824-636418541355833586.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-								</li>
-								<li class="story-gallery-item">
-									<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-620-636426389108241934.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-								</li>
-								<li class="story-gallery-item">
-									<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-404-636426389110117105.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-								</li>
-								<li class="story-gallery-item">
-									<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-479-636426389111210930.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-								</li>
-								<li class="story-gallery-item">
-									<img src="https://media.tripnow.vn/res/g1/4888/t180x180/tripnow-lan-rung-resort-spa-restaurant-824-636418541355833586.jpg" class="img-fluid" alt="Lan Rừng - Resort Spa Restaurant" title="Lan Rừng - Resort Spa Restaurant" />
-								</li>
+								<?php
+								foreach( $images as $image ): ?>
+									<li class="story-gallery-item">
+										<div class="story-gallery-image" style="background-image: url(<?php echo $image['url'] ?>);"></div>
+									</li>
+								<?php endforeach; ?>
 							</ul>
 						</div>
 					</div>
@@ -265,7 +230,7 @@
 							<span class="place-total-score color-green">7.4</span> điểm -
 							<span class="place-total-rate">Khá tốt</span>
 						</div>
-						<button type="button" class="btn btn-primary btn-review">
+						<button type="button" class="btn btn-primary btn-review" data-toggle="modal" data-target="#modal-review">
 							<i class="fas fa-comment"></i> &nbsp; Viết bình luận
 						</button>
 					</div>
@@ -289,6 +254,73 @@
       </div>
     </div>
   </div>
+
+	<div class="modal fade" id="modal-review" tabindex="-1" role="dialog" aria-labelledby="modalReviewTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="modalReviewTitle">Đánh giá</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+					<div class="review-item">
+						<b class="review-name">Vị trí tốt</b>
+						<input
+							type="text"
+							class="slider"
+							data-slider-id="review-slider"
+							data-provide="slider"
+							data-slider-min="1"
+							data-slider-max="10"
+							data-slider-step="1"
+							data-slider-value="10"
+							data-slider-tooltip="hide"
+							data-slider-handle="round"
+						/>
+						<span class="review-value">10</span>
+					</div>
+					<div class="review-item">
+						<b class="review-name">Giá cả</b>
+						<input
+							type="text"
+							class="slider"
+							data-slider-id="review-slider"
+							data-provide="slider"
+							data-slider-min="1"
+							data-slider-max="10"
+							data-slider-step="1"
+							data-slider-value="10"
+							data-slider-tooltip="hide"
+							data-slider-handle="round"
+						/>
+						<span class="review-value">10</span>
+					</div>
+					<div class="review-item">
+						<b class="review-name">Chất lượng</b>
+						<input
+							type="text"
+							class="slider"
+							data-slider-id="review-slider"
+							data-provide="slider"
+							data-slider-min="1"
+							data-slider-max="10"
+							data-slider-step="1"
+							data-slider-value="10"
+							data-slider-tooltip="hide"
+							data-slider-handle="round"
+						/>
+						<span class="review-value">10</span>
+					</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Lưu</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 	<?php
 	endwhile; // End of the loop.

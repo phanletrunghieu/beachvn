@@ -144,11 +144,13 @@ function beachvn_scripts() {
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'bootstrap-style', get_theme_file_uri("/css/bootstrap/bootstrap.min.css") );
+	wp_enqueue_style( 'bootstrap-slider-style', get_theme_file_uri("/css/bootstrap-slider/bootstrap-slider.min.css") );
 	wp_enqueue_style( 'fontawesome-style', get_theme_file_uri("/css/fontawesome-5.0.9/css/fontawesome-all.min.css") );
 	wp_enqueue_style( 'beachvn-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'popper-script', get_theme_file_uri( '/js/popper-1.12.9.min.js' ), array( 'jquery' ), '1.0', true );
 	wp_enqueue_script( 'bootstrap-script', get_theme_file_uri( '/js/bootstrap/bootstrap.min.js' ), array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'bootstrap-slider-script', get_theme_file_uri( '/js/bootstrap-slider/bootstrap-slider.min.js' ), array( 'jquery' ), '1.0', true );
 	wp_enqueue_script( 'global-script', get_theme_file_uri( '/js/global.js' ), array( 'jquery' ), '1.0', true );
 
 	wp_localize_script( 'global-script', 'post', array(
