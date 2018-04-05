@@ -4,7 +4,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div class="comment-container">
+<div class="comment-container" id="comment-container">
   <div class="comment-function">
     <a href="" class="comment-function-item comment-function-like">
       <i class="icon icon-heart v-a-10-m"></i>&nbsp;Thích

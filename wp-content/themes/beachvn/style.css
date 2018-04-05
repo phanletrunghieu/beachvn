@@ -43,6 +43,8 @@ a:hover {
 body {
   padding-top: 84px;
   background: #eee;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .grid-container {
@@ -376,4 +378,101 @@ body {
 .review-item .slider .slider-handle {
 	background: white;
   border: 1px solid #bdbdbd;
+}
+
+.list-place-container {
+  overflow: hidden;
+  clear: both;
+}
+
+.list-place-container .place-container {
+  width: 100%;
+  float: left;
+}
+@media (min-width: 576px) {
+  .list-place-container .place-container {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .list-place-container .place-container {
+    width: 33.33333%;
+  }
+}
+
+@media (min-width: 992px) {
+  .list-place-container .place-container {
+    width: 25%;
+  }
+}
+
+.list-place-container .place-content {
+  margin: 10px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+}
+.list-place-container .place-content:hover{
+  -webkit-box-shadow: 2px 6px 25px rgba(0,0,0,.1);
+  box-shadow: 2px 6px 25px rgba(0,0,0,.1);
+}
+
+.list-place-container .place-container .place-content>a{
+  display: block;
+}
+
+.list-place-container .place-container .placebox-img {
+  height: 180px;
+  background-size: cover;
+}
+
+.list-place-container .place-container .placebox-heading {
+  padding: 8px 10px;
+}
+
+.list-place-container .place-container .placebox-heading .score-circle {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #29b260;
+  color: white;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.list-place-container .place-container .placebox-heading .placebox-name {
+  display: inline-block;
+  width: calc(100% - 45px);
+  font-weight: 700;
+  color: black;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.list-place-container .place-container .placebox-meta {
+  border-top: 1px solid #eee;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.list-place-container .place-container .placebox-meta a{
+  color: #757575!important;
+}
+
+.list-place-container .place-container .placebox-meta ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-place-container .place-container .placebox-meta ul li {
+  display: inline-block;
+  margin-right: 5px;
 }
