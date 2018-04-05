@@ -15,54 +15,28 @@
 				<h1 class="place-name"><?php the_title() ?></h1>
 				<div class="place-type">Nhà hàng, Tiệc cưới/Hội nghị, Khu nghỉ dưỡng</div>
 				<div class="place-score">
+					<?php
+					$reviews = beachvn_get_review(get_the_ID());
+					foreach ($reviews as $alias=>$review):
+						if ($alias==='summary') {
+							continue;
+						}
+					?>
 					<div class="place-score-item">
 						<div class="place-score-number green">
-							8.0
+							<?php echo $review['point'] ?>
 						</div>
 						<div class="place-score-label">
-							Không gian
+							<?php echo $review['name'] ?>
 						</div>
 					</div>
+					<?php
+					endforeach;
+					?>
 
 					<div class="place-score-item">
 						<div class="place-score-number green">
-							8.2
-						</div>
-						<div class="place-score-label">
-							Vị trí
-						</div>
-					</div>
-
-					<div class="place-score-item">
-						<div class="place-score-number green">
-							7.2
-						</div>
-						<div class="place-score-label">
-							Chất lượng
-						</div>
-					</div>
-
-					<div class="place-score-item">
-						<div class="place-score-number green">
-							7.0
-						</div>
-						<div class="place-score-label">
-							Phục vụ
-						</div>
-					</div>
-
-					<div class="place-score-item">
-						<div class="place-score-number green">
-							6.7
-						</div>
-						<div class="place-score-label">
-							Giá cả
-						</div>
-					</div>
-
-					<div class="place-score-item">
-						<div class="place-score-number green">
-							7.4/<span class="black">93</span>
+							<?php echo $reviews['summary']['point'] ?>/<span class="black"><?php echo $reviews['summary']['comment_count'] ?></span>
 						</div>
 						<div class="place-score-label">
 							Bình luận
@@ -86,8 +60,8 @@
 					<div class="place-meta-item">
 						<i class="icon icon-time"></i>
 						<span class="itsclosed" title="Nhà hàng | 09:00 AM - 11:00 PM" style="color:red;">
-													Chưa mở cửa
-											</span>
+							Chưa mở cửa
+						</span>
 						<span style="margin-left: 5px;"><label> Resort: </label><span><span>12:30 AM</span> - <span>11:30 PM</span></span><span> | </span><label>Nhà hàng: </label><span><span>09:00 AM</span> - <span>11:00 PM</span></span>
 						</span>
 
@@ -162,20 +136,20 @@
 					<div class="porlet-content">
 						<div class="place-chart">
 							<div class="place-chart-item">
-								<span>93</span>
+								<span><?php echo $reviews['summary']['comment_count'] ?></span>
 								<strong>bình luận đã chia sẻ</strong>
 							</div>
 							<div class="place-chart-item">
-								<span class="color-pink">4</span> Tuyệt vời
+								<span class="color-pink"><?php echo $reviews['summary']['great'] ?></span> Tuyệt vời
 							</div>
 							<div class="place-chart-item">
-								<span class="color-green">68</span> Khá tốt
+								<span class="color-green"><?php echo $reviews['summary']['good'] ?></span> Khá tốt
 							</div>
 							<div class="place-chart-item">
-								<span class="">17</span> Trung bình
+								<span class=""><?php echo $reviews['summary']['average'] ?></span> Trung bình
 							</div>
 							<div class="place-chart-item">
-								<span class="color-red">4</span> Kém
+								<span class="color-red"><?php echo $reviews['summary']['bad'] ?></span> Kém
 							</div>
 						</div>
 						<div class="story-place-score">
@@ -184,51 +158,32 @@
 									<strong>Tiêu chí</strong>
 								</div>
 							</div>
+							<?php
+							foreach ($reviews as $alias=>$review):
+								if ($alias==='summary') {
+									continue;
+								}
+							?>
 							<div class="story-score-info row align-middle">
 								<div class="col-md-4 text-left">
-									Vị trí
+									<?php echo $review['name'] ?>
 								</div>
 								<div class="col-md-6">
 									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
+										<div class="progress-bar" role="progressbar" style="width: <?php echo $review['point']*10 ?>%" aria-valuenow="<?php echo $review['point']*10 ?>" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
 								</div>
 								<div class="col-md-2 text-right">
-									<strong>8.2</strong>
+									<strong><?php echo $review['point'] ?></strong>
 								</div>
 							</div>
-
-							<div class="story-score-info row align-middle">
-								<div class="col-md-4 text-left">
-									Giá cả
-								</div>
-								<div class="col-md-6">
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 67%" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="col-md-2 text-right">
-									<strong>6.7</strong>
-								</div>
-							</div>
-
-							<div class="story-score-info row align-middle">
-								<div class="col-md-4 text-left">
-									Chất lượng
-								</div>
-								<div class="col-md-6">
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="7.2" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="col-md-2 text-right">
-									<strong>7.2</strong>
-								</div>
-							</div>
+							<?php
+							endforeach;
+							?>
 						</div>
 						<div class="place-total text-center">
-							<span class="place-total-score color-green">7.4</span> điểm -
-							<span class="place-total-rate">Khá tốt</span>
+							<span class="place-total-score color-green"><?php echo $reviews['summary']['point'] ?></span> điểm -
+							<span class="place-total-rate"><?php echo $reviews['summary']['comment_text'] ?></span>
 						</div>
 						<button type="button" class="btn btn-primary btn-review" data-toggle="modal" data-target="#modal-review">
 							<i class="fas fa-comment"></i> &nbsp; Viết bình luận
@@ -265,58 +220,77 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-					<div class="review-item">
-						<b class="review-name">Vị trí tốt</b>
-						<input
-							type="text"
-							class="slider"
-							data-slider-id="review-slider"
-							data-provide="slider"
-							data-slider-min="1"
-							data-slider-max="10"
-							data-slider-step="1"
-							data-slider-value="10"
-							data-slider-tooltip="hide"
-							data-slider-handle="round"
-						/>
-						<span class="review-value">10</span>
-					</div>
-					<div class="review-item">
-						<b class="review-name">Giá cả</b>
-						<input
-							type="text"
-							class="slider"
-							data-slider-id="review-slider"
-							data-provide="slider"
-							data-slider-min="1"
-							data-slider-max="10"
-							data-slider-step="1"
-							data-slider-value="10"
-							data-slider-tooltip="hide"
-							data-slider-handle="round"
-						/>
-						<span class="review-value">10</span>
-					</div>
-					<div class="review-item">
-						<b class="review-name">Chất lượng</b>
-						<input
-							type="text"
-							class="slider"
-							data-slider-id="review-slider"
-							data-provide="slider"
-							data-slider-min="1"
-							data-slider-max="10"
-							data-slider-step="1"
-							data-slider-value="10"
-							data-slider-tooltip="hide"
-							data-slider-handle="round"
-						/>
-						<span class="review-value">10</span>
-					</div>
+					<form class="review-form" action="<?php echo site_url( '/wp-comments-post.php' ) ?>" method="post" novalidate>
+						<input type="hidden" name="comment_post_ID" class="comment_post_ID" value="<?php the_ID() ?>">
+						<div class="review-item">
+							<b class="review-name">Không gian</b>
+							<input
+								id="review-space"
+								type="text"
+								class="slider"
+								data-provide="slider"
+								data-slider-min="1"
+								data-slider-max="10"
+								data-slider-step="1"
+								data-slider-value="10"
+								data-slider-tooltip="hide"
+								data-slider-handle="round"
+							/>
+							<span class="review-value">10</span>
+						</div>
+						<div class="review-item">
+							<b class="review-name">Vị trí tốt</b>
+							<input
+								id="review-location"
+								type="text"
+								class="slider"
+								data-provide="slider"
+								data-slider-min="1"
+								data-slider-max="10"
+								data-slider-step="1"
+								data-slider-value="10"
+								data-slider-tooltip="hide"
+								data-slider-handle="round"
+							/>
+							<span class="review-value">10</span>
+						</div>
+						<div class="review-item">
+							<b class="review-name">Giá cả</b>
+							<input
+								id="review-price"
+								type="text"
+								class="slider"
+								data-provide="slider"
+								data-slider-min="1"
+								data-slider-max="10"
+								data-slider-step="1"
+								data-slider-value="10"
+								data-slider-tooltip="hide"
+								data-slider-handle="round"
+							/>
+							<span class="review-value">10</span>
+						</div>
+						<div class="review-item">
+							<b class="review-name">Chất lượng</b>
+							<input
+								id="review-quality"
+								type="text"
+								class="slider"
+								data-provide="slider"
+								data-slider-min="1"
+								data-slider-max="10"
+								data-slider-step="1"
+								data-slider-value="10"
+								data-slider-tooltip="hide"
+								data-slider-handle="round"
+							/>
+							<span class="review-value">10</span>
+						</div>
+					</form>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
-	        <button type="button" class="btn btn-primary" data-dismiss="modal">Lưu</button>
+	        <button type="button" class="btn btn-primary btn-submit-review" data-dismiss="modal">Lưu</button>
 	      </div>
 	    </div>
 	  </div>

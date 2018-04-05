@@ -160,7 +160,7 @@ function beachvn_scripts() {
 add_action( 'wp_enqueue_scripts', 'beachvn_scripts' );
 
 /**
- * AJAX Function
+ * AJAX Function delete comment
  */
 add_action( 'wp_ajax_nopriv_delete_comment', 'delete_comment' );
 add_action( 'wp_ajax_delete_comment', 'delete_comment' );
@@ -176,6 +176,46 @@ function delete_comment() {
 		wp_delete_comment( $comment_ID );
 		echo true;
 	}
+	die();
+}
+
+/**
+ * AJAX Function review place
+ */
+add_action( 'wp_ajax_nopriv_new_review_place', 'new_review_place' );
+add_action( 'wp_ajax_new_review_place', 'new_review_place' );
+function new_review_place() {
+	$author = wp_get_current_user();
+
+	//delete if exist
+	$comments=get_comments(array(
+		'post_id' => $_POST['comment_post_ID'],
+		'author_email' => $author->user_email,
+	));
+	foreach ($comments as $comment) {
+		if (strpos($comment->comment_content, 'review:')===0){
+			wp_delete_comment( $comment->comment_ID );
+		}
+	}
+
+	$data = array(
+		'comment_post_ID' => $_POST['comment_post_ID'],
+    'comment_author' => $author->display_name,
+    'comment_author_email' => $author->user_email,
+    'comment_author_url' => $author->user_url,
+    'comment_content' => $_POST['comment_content'],
+    'comment_type' => '',
+    'comment_parent' => 0,
+    'user_id' => 1,
+    'comment_author_IP' => '127.0.0.1',
+    'comment_agent' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.10) Gecko/2009042316 Firefox/3.0.10 (.NET CLR 3.5.30729)',
+    'comment_date' => current_time('mysql'),
+    'comment_approved' => 1,
+	);
+	wp_insert_comment($data);
+
+	echo true;
+
 	die();
 }
 
@@ -196,3 +236,98 @@ function my_acf_init() {
 	acf_update_setting('google_api_key', 'AIzaSyAN-NyYOsKJK4bDUi4a-HlKEWAJVEvu1GM');
 }
 add_action('acf/init', 'my_acf_init');
+
+/**
+ * get review info
+ */
+function beachvn_get_review($post_id){
+	$comments=get_comments(array(
+		'post_id' => $post_id
+	));
+
+	$review = array(
+		"space"	=> array(
+											'name'	=> "Không gian",
+											'point' => 10
+										),
+		"location"	=> array(
+											'name'	=> "Vị trí",
+											'point' => 10
+										),
+		"price"			=> array(
+											'name'	=> "Giá cả",
+											'point' => 10
+										),
+		"quality"		=> array(
+											'name'	=> "Chất lượng",
+											'point' => 10
+										),
+		"summary"		=> array(
+											'name'	=> "Tổng",
+											"comment_value"	=> 1,
+											"comment_text"	=> "Rất tốt",
+											"point" => 10,
+											"comment_count" => 0,
+											"great" => 0,
+											"good" => 0,
+											"average" => 0,
+											"bad" => 0,
+										)
+	);
+
+	$spaces = array();
+	$locations = array();
+	$prices = array();
+	$qualitys = array();
+
+	foreach ($comments as $comment) {
+		if (strpos($comment->comment_content, 'review:')===0){
+			$json=substr($comment->comment_content, 8);
+			$data = json_decode($json);
+			array_push($spaces, intval($data->pointSpace));
+			array_push($locations, intval($data->pointLocation));
+			array_push($prices, intval($data->pointPrice));
+			array_push($qualitys, intval($data->pointQuality));
+
+			$sum_temp = ($data->pointSpace + $data->pointLocation + $data->pointPrice + $data->pointQuality)/4;
+			$sum_temp = round($sum_temp);
+			if ($sum_temp >= 9) {
+				$review['summary']['great']++;
+			} elseif ($sum_temp >= 8) {
+				$review['summary']['good']++;
+			} elseif ($sum_temp >= 5) {
+				$review['summary']['average']++;
+			} else {
+				$review['summary']['bad']++;
+			}
+		}
+	}
+
+	if (count($locations) > 0) {
+		$review['space']['point'] = array_sum($spaces)/count($spaces);
+		$review['location']['point'] = array_sum($locations)/count($locations);
+		$review['price']['point'] = array_sum($prices)/count($prices);
+		$review['quality']['point'] = array_sum($qualitys)/count($qualitys);
+
+		//summary
+		$review['summary']['comment_count'] = count($comments) - count($locations);
+		$review['summary']['point'] = ($review['space']['point'] + $review['location']['point'] + $review['price']['point'] + $review['quality']['point'])/4;
+		$review['summary']['point'] = round($review['summary']['point'], 1);
+
+		if ($review['summary']['point'] >= 9) {
+			$review['summary']['comment_value'] = 1;
+			$review['summary']['comment_text'] = "Tuyệt vời";
+		} elseif ($review['summary']['point'] >= 8) {
+			$review['summary']['comment_value'] = 2;
+			$review['summary']['comment_text'] = "Khá tốt";
+		} elseif ($review['summary']['point'] >= 5) {
+			$review['summary']['comment_value'] = 3;
+			$review['summary']['comment_text'] = "Trung bình";
+		} else {
+			$review['summary']['comment_value'] = 4;
+			$review['summary']['comment_text'] = "Kém";
+		}
+	}
+
+	return $review;
+}

@@ -366,14 +366,14 @@ body {
   display: inline-block;
   margin-left: 10px;
 }
-#review-slider {
+.review-item .slider {
   width: calc(74% - 10px);
   display: inline-block;
 }
-#review-slider .slider-selection {
+.review-item .slider .slider-selection {
 	background: red;
 }
-#review-slider .slider-handle {
+.review-item .slider .slider-handle {
 	background: white;
   border: 1px solid #bdbdbd;
 }

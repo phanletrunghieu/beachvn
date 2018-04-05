@@ -121,4 +121,39 @@
     var reviewValue=input.parent(".review-item").find(".review-value");
     reviewValue.text(input.val());
   });
+
+  /**
+   * Event on submit review
+   */
+  $('.btn-submit-review').on('click', e=>{
+    var reviewForm=$('.review-form');
+    var comment_post_ID=reviewForm.find("input[name='comment_post_ID']").val();
+
+    var pointSpace=$('#review-space').val();
+    var pointLocation=$('#review-location').val();
+    var pointPrice=$('#review-price').val();
+    var pointQuality=$('#review-quality').val();
+
+    var formData={
+      pointSpace: pointSpace,
+      pointLocation: pointLocation,
+      pointPrice: pointPrice,
+      pointQuality: pointQuality
+    }
+
+    $.ajax({
+      url : post.ajax_url,
+      type : 'post',
+      data : {
+        action : 'new_review_place',
+        comment_content: "review: " + JSON.stringify(formData),
+        comment_post_ID: comment_post_ID,
+      },//reviewForm.serialize(),
+      success : function( response, textStatus ) {
+        if (textStatus==="success") {
+          console.log(response);
+        }
+      }
+    });
+  });
 })(jQuery);
