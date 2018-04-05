@@ -9,7 +9,7 @@
 	<div class="grid-container">
 		<div class="place-hero border">
 			<div class="place-media">
-				<img src="https://media.tripnow.vn/res/g1/4888/prof/s460x300/foody-mobile-lan-rung.jpg" class="img-fluid" alt="Lan Rừng" />
+				<img src="<?php echo get_the_post_thumbnail_url() ?>" class="img-fluid" alt="Lan Rừng" />
 			</div>
 			<div class="place-info">
 				<h1 class="place-name"><?php the_title() ?></h1>
@@ -186,7 +186,7 @@
 							<span class="place-total-rate"><?php echo $reviews['summary']['comment_text'] ?></span>
 						</div>
 						<button type="button" class="btn btn-primary btn-review" data-toggle="modal" data-target="#modal-review">
-							<i class="fas fa-comment"></i> &nbsp; Viết bình luận
+							<i class="fas fa-comment"></i> &nbsp; Đánh giá
 						</button>
 					</div>
 				</div>
@@ -204,7 +204,10 @@
           </button>
         </div>
         <div class="modal-body">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3918.1176978297617!2d106.80647799360486!3d10.878651776727285!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d8afb027ed19%3A0xbe5f002aebd8bf4d!2sMini+Stop!5e0!3m2!1svi!2s!4v1521818568687" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+					<?php
+					$location = get_field('ban_do');
+					?>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d11082.144889004743!2d<?php echo $location['lng']; ?>!3d<?php echo $location['lat']; ?>!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1522915919710" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
       </div>
     </div>
