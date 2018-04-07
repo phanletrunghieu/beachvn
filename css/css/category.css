@@ -1,0 +1,270 @@
+/*------------ Common */
+li{
+    list-style: none;
+}
+a:hover, a:active, a:visited{
+    text-decoration: none;
+}
+.clearfix{
+    clear: both;
+}
+*{
+	box-sizing: border-box;
+}
+/* End Common------------  */
+.info {
+	display: inline;
+}
+.info p{
+	display: inline-block !important;
+	margin-bottom: 30px;
+	margin-top: 8px;
+}
+.sort {
+	width: 130px !important;
+	display: inline-block !important;
+}
+.btnsort {
+    margin-top: 1px;
+    width: 52px !important;
+    height: 32px;
+    text-align: center;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-radius: 2px;
+    border: solid 1px #ccc;
+    background-color: white;
+}
+.btnsort:hover {
+    background-color: #00c5bb;
+    cursor: pointer;
+}
+.text-right p {
+	display: inline-block;
+}
+
+.block_title{
+	text-align: center;
+	border-bottom: solid 1px #dddddd;
+}
+.product-title {
+	text-align: center;
+}
+.product-title h3 p{
+	font-size: 15px;
+	color: black;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.product-title h3 p:hover{	
+	color: #df682e;
+}
+.colection ul{
+	margin-top: 5px;
+	text-align: center;
+}
+.colection ul li{
+	display: inline;
+	margin-right: 25px;
+	font-size: 15px;
+}
+.colection ul li a{
+	color: black;
+}
+.colection{
+	margin-top: 50px;
+}
+.colection  ul{
+	margin-bottom: 20px;
+}
+.product-price ins a {
+	color: red;
+}
+.product-price ins {
+	text-decoration: none;
+	color: red;
+	font-weight: 700;
+}
+.product-price {
+	text-align: center;
+} 
+.product-image img { 
+	max-width: 100%;
+	height: auto;
+	position: relative;
+}
+
+.product-image img:hover{
+	cursor: pointer;
+}
+.quick_action {
+	display: none;
+    background: #fff;
+    -webkit-box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.09);
+    box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.09);
+    height: 40px;
+    padding: 8px 0;
+    position: absolute;
+    right: 50px;
+    left: 28px;
+    bottom: 75px;
+}
+.btn-shopping-cart i{
+	float: left;
+    width: 50%;
+    font-size: 22px;
+    text-align: center;
+    display: block;
+    color: #373737;
+}
+.btn-quicklook i {
+	float: right;
+    width: 50%;
+    text-align: center;
+    display: block;
+    color: #373737;
+}
+.row i {
+	font-size: 18px !important;
+    padding-top: 3px;
+}
+.row i:hover{
+    color: #00beb4;
+}
+.sale-flash {
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 5px 10px;
+    background-color: #00c5bb;
+    color: #FFF;
+    z-index: 5;
+    font-size: 15px;
+    left: 15px;
+    top: 1px;
+}
+.interactive_img{
+	z-index: 0;
+}
+.interactive_overlay {
+    padding: 50px;
+    padding-top: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+}
+.btn_see_all{
+	margin-top: 40px;
+	border: solid 1px grey;
+	padding: 5px;
+	text-align: center;
+}
+.btn_see_all a{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+.interactive_overlay3 {
+    padding: 50px;
+    padding-top: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+}
+.brand_title{
+	text-align: center;
+	margin: 20px;
+}
+.brand_content img{
+	padding-left: 13px;
+}
+
+/*-----------Category & sidebar------------*/
+.panel-heading h4 {
+	color: #00c5bb;
+} 
+.filter_group .widget_links h4 {
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 12px;
+}
+.filter_group .widget_links ul label {
+    font-weight: 400;
+    text-transform: none;
+    margin-bottom: 0;
+    vertical-align: bottom;
+    font-size: 14px;
+    float: left;
+}
+.filter_list {
+    display: inline-grid !important;
+}
+label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #555;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.colection {
+    margin-top: 20px;
+}
+.filter_group .widget_links h4 {
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 12px;
+}
+.filter_group a i {
+    float: right;
+    line-height: 12px;
+    font-size: 15px !important;
+}
+.filter_group .widget_links {
+    padding: 10px 10px 0 10px;
+}
+.filter_group .widget_links {
+    margin-top: 10px;
+    border-top: 1px dotted #EEE;
+}
+.filter_group .widget_links ul label {
+    font-weight: 400;
+    text-transform: none;
+    margin-bottom: 0;
+    vertical-align: bottom;
+}
+/*sidebar*/
+div.sidebar h4 a {
+    color: #444;
+}
+.spost .entry-image, .spost .entry-image a, .spost .entry-image img, .spost .entry-image i {
+    width: 48px;
+    float: left;
+}
+.spost .entry-title h4, .mpost .entry-title h4 {
+    font-weight: 300;
+    margin: 0;
+    font-size: 14px;
+}
+.entry-meta li ins {
+    font-weight: 300;
+    text-decoration: none;
+    color: #00c5bb !important;
+}
+.entry-meta li {
+    float: left;
+    font-size: 13px;
+    line-height: 14px;
+    margin: 0 10px 5px 0;
+    color: #999;
+    font-style: italic;
+}
+.spost, .mpost {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #E5E5E5;
+}

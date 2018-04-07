@@ -1,0 +1,19 @@
+textarea{
+	background-color: #C1F1EA;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border-style: none;
+	text-align: left;
+}
+textarea.text{
+	margin-left: 10px;
+}
+button{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border-style: none;
+	background-color: #56aaff;
+	color: #fff;
+}

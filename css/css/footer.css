@@ -1,0 +1,96 @@
+/*-------------- Common*/
+a:hover, a:active, a:visited{
+    text-decoration: none;
+}
+.clearfix{
+    clear: both;
+}
+/* End Common--------------*/
+/*-------------- Subscribe_group*/
+.subscribe_group{
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+    /*-------------- Subscribe_group_left*/
+
+.social-icon i{
+    font-size: 25px !important;
+}
+.subscribe_group_left{
+    float: left;
+}
+.subscribe_group_left h5{
+    float: left;
+    display: inline-block;
+}
+.subscribe_group_left h5 span{
+    display: inline-block;
+    font-size: 16px;
+}
+.form_subscribe{
+    margin-top: 8px;
+    margin-left: 10px;
+}
+.btn i{
+    font-size: 20px;
+}
+.btn{
+    background-color: #00c5bb;
+}
+.input-group-btn{
+    width: auto;
+}
+.input-group {
+    display: block !important;
+}
+.subscribe_group_left .form_subscribe{
+    float: right;
+}
+
+    /* End Subscribe_group_left --------------*/
+
+    /*-------------- Subscribe_group_right*/
+.subscribe_group_right{
+    float: right;
+    margin-top: 15px;
+}
+
+.social-icon{
+    margin:  25px;
+    background-color: #00c5bb;
+    font-size: 30px;
+    
+}
+
+    /* End Subscribe_group_right --------------*/
+
+/* End Subscribe_group --------------*/
+/*=====================> Footer */
+
+#footer {
+    margin-top: 10px;
+    position: relative;
+    background-color: #232323;
+    color: #ffffff;
+    border-top: 5px solid #000;
+
+}
+.prefoorerone{
+    width: 20%;
+    float: left;
+}
+.certification a img{
+    margin-top: 20px;
+}
+.copyright{
+    background-color: #1f1f1f;
+    padding-top: 15px;
+}
+.widget_content li a{
+    color: white;
+}
+.widget_content li{
+    list-style: square inside;
+}
+/*===================== End footer */
