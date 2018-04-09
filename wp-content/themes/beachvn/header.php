@@ -26,7 +26,7 @@
 					<div class="nav-search">
 						<div class="search">
 							<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<input type="text" id="search-input" name="s" class="form-input" placeholder="Địa điểm, món ăn, loại hình...">
+								<input type="text" id="search-input" name="s" class="form-input" placeholder="Địa điểm...">
 								<input type="hidden" name="post_type" value="place">
 								<span class="input-group-btn">
 									<button type="" class="btn btn-search">
@@ -43,11 +43,14 @@
 							<div class="nav-user-btn">
 								<a href="<?php echo wp_login_url( get_permalink() ); ?>" class="nav-user-name">Đăng nhập</a>
 							</div>
-						<?php } else { ?>
+						<?php
+						} else {
+							$user = wp_get_current_user();
+						?>
 							<div class="nav-user-btn" id="dropdown-menu-login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<div class="nav-user-name">Phan Hiếu</div>
+								<div class="nav-user-name"><?php echo $user->display_name; ?></div>
 								<div class="avatar">
-									<img src="https://media.tripnow.vn/usr/g901/9006744/avt/s65x65/foody-avatar-702-636368518734679128.jpg" alt="Phan Hiếu">
+									<img src="<?php echo get_avatar_url($user->user_email, 65) ?>" alt="Phan Hiếu">
 								</div>
 							</div>
 							<div class="dropdown-menu" aria-labelledby="dropdown-menu-login">
@@ -58,6 +61,5 @@
 				</div>
 			</div>
 		</header>
-
-		<div class="site-content-contain">
-			<div id="content" class="site-content">
+		
+		<div id="content" class="site-content">
