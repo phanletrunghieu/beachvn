@@ -85,6 +85,16 @@ function remove_admin_bar() {
 }
 
 /**
+ * custom login logo
+ */
+function custom_loginlogo() {
+	echo '<style type="text/css">
+	h1 a {background-image: url('.get_bloginfo('template_directory').'/images/logo.png)!important; background-size: contain!important; width: 300px!important;}
+	</style>';
+}
+add_action('login_head', 'custom_loginlogo');
+
+/**
  * register new post type
  */
 function create_post_type() {
@@ -117,13 +127,40 @@ function create_post_type() {
 add_action('init', 'create_post_type');
 
 /**
+ * search by place-category
+ */
+function search_by_place_category($wp_query){
+	if (is_search()) {
+		$post_type = get_query_var('post_type');
+		$place_category = isset($_GET['place_category']) ? $_GET['place_category'] : "";
+		if($post_type !== "place" || $place_category==null)
+			return $wp_query;
+
+		$search_word = get_query_var('s');
+    $wp_query->set('post_type', array($post_type));
+    $wp_query->set(
+			'tax_query', array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'place-category',
+					'field' => 'slug',
+					'terms' => array( $place_category )
+				)
+			)
+		);
+	}
+	return $wp_query;
+}
+add_filter('pre_get_posts', 'search_by_place_category');
+
+/**
  * Get all place category
  */
-function get_place_categories() {
+function get_place_categories($limit=8) {
 	$terms = get_terms(array(
 		'taxonomy' => 'place-category',
 		'hide_empty' => false,
-		'number' => 8,
+		'number' => $limit,
 		'orderby' => 'count',
 		'count' => true,
 	));
