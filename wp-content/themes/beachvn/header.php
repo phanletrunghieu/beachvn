@@ -50,7 +50,7 @@
 							<div class="nav-user-btn" id="dropdown-menu-login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<div class="nav-user-name"><?php echo $user->display_name; ?></div>
 								<div class="avatar">
-									<img src="<?php echo get_avatar_url($user->user_email, 65) ?>" alt="Phan Hiếu">
+									<img src="<?php echo get_user_avatar($user->user_email) ?>" alt="Phan Hiếu">
 								</div>
 							</div>
 							<div class="dropdown-menu" aria-labelledby="dropdown-menu-login">
@@ -61,5 +61,5 @@
 				</div>
 			</div>
 		</header>
-		
+
 		<div id="content" class="site-content">
