@@ -6,7 +6,7 @@
     background-size: 126px 25px;
     margin-right: 30px;
 }
-.nav {
+header .nav {
     display: flex;
     padding: 16px 0 0 0;
 }
@@ -90,6 +90,17 @@
     display: inline-block;
     vertical-align: middle;
     margin-left: 76px;
+}
+.avatar {
+    vertical-align: middle;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
 }
 .btnradius {
     border-radius: 50% !important;
@@ -246,17 +257,6 @@ multi-item-carousel{
   }
 }
 
-// non-related styling:
-body{
-  background: #333;
-  color: #ddd;
-}
-h1{
-    font-size: 2.25em;
-    text-align: center;
-    margin-top: 80px;
-    margin-bottom: 10px;
-}
 .col-xs-4:hover {
     cursor: pointer;
 }

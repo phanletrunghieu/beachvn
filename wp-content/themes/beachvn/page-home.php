@@ -41,117 +41,29 @@
         </h2>
     </div>
     <div class="row">
-        <div class="col-sm-3">
+        <?php
+        $terms=get_place_categories();
+        foreach ($terms as $term) {
+          $term_link = get_term_link( $term );
+          $image = get_field("image", $term->taxonomy."_".$term->term_id);
+        ?>
+          <div class="col-sm-3">
             <div class="feature-item embed">
-                  <a href="/ho-chi-minh/gioi-thieu" class="link-absolute"></a>
+                <a href="<?php echo esc_url($term_link) ?>" class="link-absolute"></a>
                 <div class="embed-item">
-                      <img src="images/city/hochiminh.jpg" alt="">
+                  <img src="<?php echo $image; ?>" alt="">
+                </div>
+                <div class="feature-info">
+                  <div class="text-center">
+                    <div class="feature-name"><?php echo $term->name; ?></div>
+                    <div class="feature-meta"><?php echo $term->count ?> địa điểm</div>
                   </div>
-                  <div class="feature-info">
-                      <div class="text-center">
-                          <div class="feature-name">TP. HCM</div>
-                          <div class="feature-meta">59442 địa điểm - 29 Tours </div>
-                      </div>
-                  </div>
+                </div>
               </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="feature-item embed">
-                  <a href="/ha-noi/gioi-thieu" class="link-absolute"></a>
-                <div class="embed-item">
-                      <img src="images/city/hanoi.jpg" alt="">
-                  </div>
-                  <div class="feature-info">
-                      <div class="text-center">
-                          <div class="feature-name">Hà Nội</div>
-                          <div class="feature-meta">49694 địa điểm - 19 Tours </div>
-                      </div>
-                  </div>
-              </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="feature-item embed">
-                  <a href="/hue/gioi-thieu" class="link-absolute"></a>
-                <div class="embed-item">
-                      <img src="images/city/hue.jpg" alt="">
-                  </div>
-                  <div class="feature-info">
-                      <div class="text-center">
-                          <div class="feature-name">Huế</div>
-                          <div class="feature-meta">14694 địa điểm - 11 Tours </div>
-                      </div>
-                  </div>
-              </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="feature-item embed">
-                  <a href="/danang/gioi-thieu" class="link-absolute"></a>
-                <div class="embed-item">
-                      <img src="images/city/danang.jpg" alt="">
-                  </div>
-                  <div class="feature-info">
-                      <div class="text-center">
-                          <div class="feature-name">Đà Nẵng</div>
-                          <div class="feature-meta">6318 địa điểm - 8 Tours </div>
-                      </div>
-                  </div>
-              </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="feature-item embed">
-                  <a href="/binhthuan/gioi-thieu" class="link-absolute"></a>
-                <div class="embed-item">
-                      <img src="images/city/binhthuan.jpg" alt="">
-                  </div>
-                  <div class="feature-info">
-                      <div class="text-center">
-                          <div class="feature-name">Bình Thuận</div>
-                          <div class="feature-meta">6145 địa điểm - 10 Tours </div>
-                      </div>
-                  </div>
-              </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="feature-item embed ">
-                  <a href="/cantho/gioi-thieu" class="link-absolute"></a>
-                <div class="embed-item">
-                      <img src="images/city/cantho.jpg" alt="">
-                  </div>
-                  <div class="feature-info">
-                      <div class="text-center">
-                          <div class="feature-name">Cần Thơ</div>
-                          <div class="feature-meta">14250 địa điểm - 15 Tours </div>
-                      </div>
-                  </div>
-              </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="feature-item embed ">
-                  <a href="/vung-tau/gioi-thieu" class="link-absolute"></a>
-                <div class="embed-item">
-                      <img src="images/city/vungtau.jpg" alt="">
-                  </div>
-                  <div class="feature-info">
-                      <div class="text-center">
-                          <div class="feature-name">Vũng Tàu</div>
-                          <div class="feature-meta">15201 địa điểm - 12 Tours </div>
-                      </div>
-                  </div>
-              </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="feature-item embed ">
-                  <a href="/all/gioi-thieu" class="link-absolute"></a>
-                <div class="embed-item">
-                      <img src="images/city/all.jpg" alt="">
-                  </div>
-                  <div class="feature-info">
-                      <div class="text-center">
-                          <div class="feature-name">Xem Tất Cả</div>
-                      </div>
-                  </div>
-              </div>
-        </div>
+          </div>
+        <?php
+        }
+        ?>
     </div>
     <div class="feature-place">
       <div class="row">
@@ -181,160 +93,25 @@
 
 <section class="topmember-container">
   <div class="container">
-    <div class="row">
-      <h3 class="topmember-title">Top Thành viên</h3>
-      <div class="topmenber">
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" alt="Nguyễn Thị Thanh Trúc" src="icon/cotruc.jpg">
-            </div>
+    <h3 class="topmember-title">Top Thành viên</h3>
+    <div class="topmenber">
+      <?php
+      $top_users=get_top_users();
+      foreach ($top_users as $user) {
+      ?>
+      <div class="topmember-item">
+        <a class="link-absolute"></a>
+        <div class="topmember-img">
+          <i class="fa fa-check icon"></i>
+          <div class="topmember-img-place">
+            <img alt="<?php echo $user->data->display_name ?>" src="<?php echo get_avatar_url($user->data->user_email, 60) ?>">
           </div>
-          <div>Cô Trúc</div>
         </div>
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img src="icon/hieu.jpg">
-            </div>
-          </div>
-          <div>Phan Lê Trung Hiếu</div>
-        </div>
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img src="icon/hoa.jpg">
-            </div>
-          </div>
-          <div>Trần Thiện Hòa</div>
-        </div>
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/kimhieu.jpg">
-            </div>
-          </div>
-          <div>Nguyễn Kim Hiếu</div>
-        </div>
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/hao.jpg">
-            </div>
-          </div>
-          <div>Nguyễn Xuân Hảo</div>
-        </div>
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/dung.jpg">
-            </div>
-          </div>
-          <div>Đặng Việt Dũng</div>
-        </div>
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/anle.jpg">
-            </div>
-          </div>
-          <div>Ấn Lê</div>
-        </div>
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/chau.jpg">
-            </div>
-          </div>
-          <div>Đoàn Văn Châu</div>
-        </div>
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/rin.jpg">
-            </div>
-          </div>
-          <div>NIR Rin</div>
-        </div>
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/vy.jpg">
-            </div>
-          </div>
-          <div>Lê Hoàng Vỹ Vỹ</div>
-        </div>
-        <div class="topmember-item">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/khoa.jpg">
-            </div>
-          </div>
-          <div>Huỳnh Văn Khoa</div>
-        </div>
-        <div class="topmember-item ng-scope" ng-repeat="item in Items">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/duyen.jpg">
-            </div>
-          </div>
-          <div ng-bind="item.CustomerFullName" class="ng-binding">Nguyễn Tú Duyên</div>
-        </div>
-        <div class="topmember-item ng-scope" ng-repeat="item in Items">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/khai.jpg">
-            </div>
-          </div>
-          <div ng-bind="item.CustomerFullName" class="ng-binding">Lê Tuấn Khải</div>
-        </div>
-        <div class="topmember-item ng-scope" ng-repeat="item in Items">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/cntt.jpg">
-            </div>
-          </div>
-          <div ng-bind="item.CustomerFullName" class="ng-binding">Trường ĐH CNTT</div>
-        </div>
-        <div class="topmember-item ng-scope" ng-repeat="item in Items">
-          <a class="link-absolute"></a>
-          <div class="topmember-img">
-            <i class="fa fa-check icon"></i>
-            <div class="topmember-img-place">
-              <img class=" lazyloaded" src="icon/cntt.jpg">
-            </div>
-          </div>
-          <div ng-bind="item.CustomerFullName" class="ng-binding">Trường ĐH CNTT</div>
-        </div>
+        <div><?php echo $user->data->display_name ?></div>
       </div>
+      <?php
+      }
+      ?>
     </div>
   </div>
 </section>
@@ -353,4 +130,5 @@
     </div>
   </div>
 </section>
+
 <?php get_footer(); ?>

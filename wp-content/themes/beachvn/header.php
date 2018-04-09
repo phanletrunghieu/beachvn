@@ -25,8 +25,9 @@
 					</div>
 					<div class="nav-search">
 						<div class="search">
-							<form>
-								<input type="text" id="pkeywords" class="form-input" placeholder="Địa điểm, món ăn, loại hình...">
+							<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+								<input type="text" id="search-input" name="s" class="form-input" placeholder="Địa điểm, món ăn, loại hình...">
+								<input type="hidden" name="post_type" value="place">
 								<span class="input-group-btn">
 									<button type="" class="btn btn-search">
 										<i class="fa fa-search"></i>
@@ -36,23 +37,23 @@
 						</div>
 					</div>
 					<div class="nav-user">
-						<div class="nav-user-btn">
-								<div class="nav-user-name">Đăng nhập</div>
-						</div>
-					</div>
-					<div class="nav-functions">
-						<div class="button-s2" >
-							<span class="input-group-btn">
-								<button type="" class="btn btnradius">
-									<i class="fa fa-plus"></i>
-								</button>
-							</span>
-						</div>
-					</div>
-					<div class="nav-language">
-						<button class="button">
-							<img src="<?php echo get_theme_file_uri("images/vn.png") ?>" width="20">
-						</button>
+						<?php
+						if (!is_user_logged_in()) {
+						?>
+							<div class="nav-user-btn">
+								<a href="<?php echo wp_login_url( get_permalink() ); ?>" class="nav-user-name">Đăng nhập</a>
+							</div>
+						<?php } else { ?>
+							<div class="nav-user-btn" id="dropdown-menu-login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<div class="nav-user-name">Phan Hiếu</div>
+								<div class="avatar">
+									<img src="https://media.tripnow.vn/usr/g901/9006744/avt/s65x65/foody-avatar-702-636368518734679128.jpg" alt="Phan Hiếu">
+								</div>
+							</div>
+							<div class="dropdown-menu" aria-labelledby="dropdown-menu-login">
+						    <a class="dropdown-item" href="<?php echo wp_logout_url( get_permalink() ); ?>">Đăng xuất</a>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>

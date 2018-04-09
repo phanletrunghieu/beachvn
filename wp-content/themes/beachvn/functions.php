@@ -75,6 +75,16 @@ function theme_setup() {
 add_action( 'after_setup_theme', 'theme_setup' );
 
 /**
+ * Hide admin bar to subscriber
+ */
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+		show_admin_bar(false);
+	}
+}
+
+/**
  * register new post type
  */
 function create_post_type() {
@@ -114,10 +124,25 @@ function get_place_categories() {
 		'taxonomy' => 'place-category',
 		'hide_empty' => false,
 		'number' => 8,
+		'orderby' => 'count',
 		'count' => true,
 	));
 
 	return $terms;
+}
+
+/**
+ * Get all user
+ */
+function get_top_users() {
+	$users = get_users(array(
+	  'orderby'      => 'meta_value_num',
+	  'order'        => 'DESC',
+		'role'         => 'subscriber',
+	  'number'       => '10',
+	));
+
+	return $users;
 }
 
 /**
@@ -159,6 +184,7 @@ function beachvn_scripts() {
 	// Theme stylesheet.
 	wp_enqueue_style( 'bootstrap-style', get_theme_file_uri("/css/bootstrap/bootstrap.min.css") );
 	wp_enqueue_style( 'bootstrap-slider-style', get_theme_file_uri("/css/bootstrap-slider/bootstrap-slider.min.css") );
+	wp_enqueue_style( 'ekko-lightbox-style', get_theme_file_uri("/css/ekko-lightbox/ekko-lightbox.css") );
 	wp_enqueue_style( 'fontawesome-style', get_theme_file_uri("/css/fontawesome-5.0.9/css/fontawesome-all.min.css") );
 	wp_enqueue_style( 'beachvn-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'home-page-style', get_theme_file_uri("/css/main.css") );
@@ -166,6 +192,7 @@ function beachvn_scripts() {
 	wp_enqueue_script( 'popper-script', get_theme_file_uri( '/js/popper-1.12.9.min.js' ), array( 'jquery' ), '1.0', true );
 	wp_enqueue_script( 'bootstrap-script', get_theme_file_uri( '/js/bootstrap/bootstrap.min.js' ), array( 'jquery' ), '1.0', true );
 	wp_enqueue_script( 'bootstrap-slider-script', get_theme_file_uri( '/js/bootstrap-slider/bootstrap-slider.min.js' ), array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'ekko-lightbox-script', get_theme_file_uri( '/js/ekko-lightbox/ekko-lightbox.min.js' ), array( 'jquery' ), '1.0', true );
 	wp_enqueue_script( 'global-script', get_theme_file_uri( '/js/global.js' ), array( 'jquery' ), '1.0', true );
 
 	wp_localize_script( 'global-script', 'post', array(

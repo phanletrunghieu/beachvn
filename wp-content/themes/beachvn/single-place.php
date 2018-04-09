@@ -104,7 +104,7 @@
 									$images = get_field('album');
 									foreach( $images as $image ): ?>
 										<li class="story-gallery-item">
-											<div class="story-gallery-image" style="background-image: url(<?php echo $image['url'] ?>);"></div>
+											<div class="story-gallery-image" style="background-image: url(<?php echo $image['url'] ?>);" data-remote="<?php echo $image['url'] ?>" data-toggle="lightbox" data-gallery="xxx-gallery-1" data-type="image"></div>
 										</li>
 									<?php endforeach; ?>
 								</ul>
@@ -123,7 +123,7 @@
 								<?php
 								foreach( $images as $image ): ?>
 									<li class="story-gallery-item">
-										<div class="story-gallery-image" style="background-image: url(<?php echo $image['url'] ?>);"></div>
+										<div class="story-gallery-image" style="background-image: url(<?php echo $image['url'] ?>);" data-remote="<?php echo $image['url'] ?>" data-toggle="lightbox" data-gallery="xxx-gallery-2" data-type="image"></div>
 									</li>
 								<?php endforeach; ?>
 							</ul>
