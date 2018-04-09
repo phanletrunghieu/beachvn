@@ -5,11 +5,11 @@ if ( post_password_required() ) {
 ?>
 
 <div class="comment-container" id="comment-container">
-  <div class="comment-function">
+  <!-- <div class="comment-function">
     <a href="" class="comment-function-item comment-function-like">
       <i class="icon icon-heart v-a-10-m"></i>&nbsp;Thích
     </a>
-  </div>
+  </div> -->
 
   <?php
   wp_list_comments( array(
@@ -54,6 +54,9 @@ if ( post_password_required() ) {
   ) );
   ?>
 
+	<?php
+	if (is_user_logged_in()):
+	?>
   <div class="comment">
     <div class="comment-left">
       <div class="comment-avatar">
@@ -68,4 +71,7 @@ if ( post_password_required() ) {
 			</form>
     </div>
   </div>
+	<?php
+	endif;
+	?>
 </div>
