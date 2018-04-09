@@ -17,25 +17,27 @@
 					<div class="nav-logo">
 						<a href="/"><span class="logo"></span></a>
 					</div>
-					<div class="nav-location">
-						<button class="button dropdown hollow button-s1" type="button">TP. HCM</button>
-					</div>
-					<div class="nav-location">
-						<button class="button dropdown hollow button-s1" type="button">Tham quan</button>
-					</div>
-					<div class="nav-search">
+					<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+						<select class="custom-select" name="place_category">
+							<?php
+							$terms=get_place_categories();
+							foreach ($terms as $term) {
+							?>
+							<option value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
+							<?php
+							}
+							?>
+						</select>
 						<div class="search">
-							<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<input type="text" id="search-input" name="s" class="form-input" placeholder="Địa điểm...">
-								<input type="hidden" name="post_type" value="place">
-								<span class="input-group-btn">
-									<button type="" class="btn btn-search">
-										<i class="fa fa-search"></i>
-									</button>
-								</span>
-							</form>
+							<input type="text" id="search-input" name="s" class="form-input" placeholder="Địa điểm...">
+							<input type="hidden" name="post_type" value="place">
+							<span class="input-group-btn">
+								<button type="" class="btn btn-search">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
 						</div>
-					</div>
+					</form>
 					<div class="nav-user">
 						<?php
 						if (!is_user_logged_in()) {

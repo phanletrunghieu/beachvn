@@ -13,6 +13,22 @@ header .nav {
 .nav-location {
 	position: relative;
 }
+header form{
+  display: flex;
+}
+header .custom-select{
+  border: 1px solid #eee;
+  color: #212121;
+  height: 32px;
+  background: white;
+  margin-right: 2px;
+  margin-top: -7px;
+
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .button.dropdown.hollow {
     padding-right: 25px;
     position: relative;
@@ -57,7 +73,7 @@ header .nav {
     margin-left: 1em;
 }
 
-.nav-search .form-input {
+.search .form-input {
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 3px;
