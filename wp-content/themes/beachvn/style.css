@@ -46,6 +46,10 @@ body {
   -webkit-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
 }
+body.home {
+  padding-top: 54px;
+  background: #fff;
+}
 
 .grid-container {
   width: 1200px;
@@ -53,6 +57,7 @@ body {
   padding-right: .71429rem;
   padding-left: .71429rem;
   margin: 0 auto;
+  position: relative;
 }
 
 .place-hero {
@@ -475,4 +480,19 @@ body {
 .list-place-container .place-container .placebox-meta ul li {
   display: inline-block;
   margin-right: 5px;
+}
+
+
+/* Header */
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.admin-bar header{
+  top: 32px;
 }

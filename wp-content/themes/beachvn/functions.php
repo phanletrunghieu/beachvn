@@ -107,6 +107,20 @@ function create_post_type() {
 add_action('init', 'create_post_type');
 
 /**
+ * Get all place category
+ */
+function get_place_categories() {
+	$terms = get_terms(array(
+		'taxonomy' => 'place-category',
+		'hide_empty' => false,
+		'number' => 8,
+		'count' => true,
+	));
+
+	return $terms;
+}
+
+/**
  * Register custom fonts.
  */
 function beachvn_fonts_url() {
@@ -147,6 +161,7 @@ function beachvn_scripts() {
 	wp_enqueue_style( 'bootstrap-slider-style', get_theme_file_uri("/css/bootstrap-slider/bootstrap-slider.min.css") );
 	wp_enqueue_style( 'fontawesome-style', get_theme_file_uri("/css/fontawesome-5.0.9/css/fontawesome-all.min.css") );
 	wp_enqueue_style( 'beachvn-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'home-page-style', get_theme_file_uri("/css/main.css") );
 
 	wp_enqueue_script( 'popper-script', get_theme_file_uri( '/js/popper-1.12.9.min.js' ), array( 'jquery' ), '1.0', true );
 	wp_enqueue_script( 'bootstrap-script', get_theme_file_uri( '/js/bootstrap/bootstrap.min.js' ), array( 'jquery' ), '1.0', true );
