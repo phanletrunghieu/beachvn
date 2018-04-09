@@ -57,7 +57,7 @@ header .nav {
     margin-left: 1em;
 }
 
-.form-input {
+.nav-search .form-input {
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 3px;

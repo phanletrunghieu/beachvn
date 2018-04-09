@@ -41,13 +41,15 @@ a:hover {
 }
 
 body {
-  padding-top: 84px;
+  padding-top: 54px;
   background: #eee;
   -webkit-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
 }
+body.single {
+  padding-top: 84px;
+}
 body.home {
-  padding-top: 54px;
   background: #fff;
 }
 
@@ -495,4 +497,69 @@ header{
 
 .admin-bar header{
   top: 32px;
+}
+
+/*archive page*/
+.hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #616161;
+  background-position: 50%;
+  z-index: 10;
+  position: relative;
+}
+
+.hero-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 500px;
+  color: #fff;
+}
+
+/* pagination */
+.screen-reader-text {
+  display: none;
+}
+
+.navigation.pagination {
+  padding-bottom: 10px;
+}
+
+.navigation.pagination .nav-links{
+  margin: auto;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navigation.pagination .nav-links .page-numbers{
+  background-color: #fff;
+  color: #000;
+  border-radius: 50%;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.navigation.pagination .nav-links .page-numbers.current {
+  background-color: #000;
+  color: #fff;
 }

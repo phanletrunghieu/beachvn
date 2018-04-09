@@ -22,7 +22,7 @@ if ( post_password_required() ) {
   <div id="comment-<?php echo $comment->comment_ID ?>" class="comment">
     <div class="comment-left">
       <div class="comment-avatar">
-        <img alt="Phan Hiếu" class="img-fluid" src="<?php echo get_avatar_url($comment->comment_author_email, 35) ?>" />
+        <img alt="Phan Hiếu" class="img-fluid" src="<?php echo get_user_avatar($comment->comment_author_email, 35) ?>" />
       </div>
     </div>
     <div class="comment-right">
@@ -60,7 +60,7 @@ if ( post_password_required() ) {
   <div class="comment">
     <div class="comment-left">
       <div class="comment-avatar">
-        <img alt="Avatar" class="img-fluid" src="<?php echo get_avatar_url(null, 35) ?>" />
+        <img alt="Avatar" class="img-fluid" src="<?php echo get_user_avatar(null, 35) ?>" />
       </div>
     </div>
     <div class="comment-right">

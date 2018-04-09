@@ -104,7 +104,7 @@
         <div class="topmember-img">
           <i class="fa fa-check icon"></i>
           <div class="topmember-img-place">
-            <img alt="<?php echo $user->data->display_name ?>" src="<?php echo get_avatar_url($user->data->user_email, 60) ?>">
+            <img alt="<?php echo $user->data->display_name ?>" src="<?php echo get_user_avatar($user->data->user_email, 60) ?>">
           </div>
         </div>
         <div><?php echo $user->data->display_name ?></div>

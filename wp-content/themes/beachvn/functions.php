@@ -91,16 +91,6 @@ function create_post_type() {
 	//fix single-place.php show "page not found"
 	flush_rewrite_rules( false );
 
-	register_taxonomy(
-		'place-category',
-		'place',
-		array(
-			'label' => __( 'Category' ),
-			'rewrite' => array( 'slug' => 'place-category' ),
-			'hierarchical' => true,
-		)
-	);
-
 	register_post_type( 'place',
     array(
       'labels' => array(
@@ -113,6 +103,16 @@ function create_post_type() {
 			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'comments' ),
     )
   );
+
+	register_taxonomy(
+		'place-category',
+		'place',
+		array(
+			'label' => __( 'Category' ),
+			'rewrite' => array( 'slug' => 'place-category' ),
+			'hierarchical' => true,
+		)
+	);
 }
 add_action('init', 'create_post_type');
 
@@ -143,6 +143,18 @@ function get_top_users() {
 	));
 
 	return $users;
+}
+
+/**
+ * Get
+ */
+function get_user_avatar($ID){
+	$text = get_wp_user_avatar($ID);
+	$pattern = '/src=[\'"]?([^\'" >]+)[\'" >]/';
+	preg_match($pattern, $text, $link);
+	$link = $link[1];
+	$link = urldecode($link);
+	return $link;
 }
 
 /**
