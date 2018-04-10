@@ -73,6 +73,10 @@ header .custom-select{
     margin-left: 1em;
 }
 
+.search {
+  display: flex;
+}
+
 .search .form-input {
     background: #fff;
     border: 1px solid #e0e0e0;
