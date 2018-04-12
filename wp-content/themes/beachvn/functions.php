@@ -168,15 +168,19 @@ function get_place_categories($limit=8) {
 	return $terms;
 }
 
+function get_category_by_place_id($post_id) {
+	return get_the_terms($post_id, 'place-category');
+}
+
 /**
  * Get all user
  */
 function get_top_users() {
 	$users = get_users(array(
-	  'orderby'      => 'meta_value_num',
-	  'order'        => 'DESC',
+	  'orderby'      => 'registered',
+	  'order'        => 'ASC',
 		'role'         => 'subscriber',
-	  'number'       => '10',
+	  'number'       => '20',
 	));
 
 	return $users;

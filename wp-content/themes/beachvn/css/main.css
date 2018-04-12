@@ -73,11 +73,11 @@ header .custom-select{
     margin-left: 1em;
 }
 
-.search {
+header .search {
   display: flex;
 }
 
-.search .form-input {
+header .search .form-input {
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 3px;
@@ -155,6 +155,15 @@ header .custom-select{
 }
 .feature-item:hover {
     cursor: pointer;
+}
+.feature-item .embed-item{
+  width: 100%;
+  height: 140px;
+}
+.feature-item .embed-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .embed {
     position: relative;

@@ -13,7 +13,13 @@
 			</div>
 			<div class="place-info">
 				<h1 class="place-name"><?php the_title() ?></h1>
-				<div class="place-type">Nhà hàng, Tiệc cưới/Hội nghị, Khu nghỉ dưỡng</div>
+				<div class="place-type">
+					<?php
+					$category = get_category_by_place_id($post->ID)[0];
+					$category_link = get_term_link($category);
+					echo '<a href="'.$category_link.'">'.$category->name.'</a>';
+					?>
+				</div>
 				<div class="place-score">
 					<?php
 					$reviews = beachvn_get_review(get_the_ID());
@@ -41,34 +47,6 @@
 						<div class="place-score-label">
 							Bình luận
 						</div>
-					</div>
-				</div>
-
-				<div class="place-meta">
-					<div class="place-meta-item">
-						<i class="icon icon-location-arrow"></i> 3 - 6 Hạ Long, Bãi Dứa, Tp. Vũng Tàu
-					</div>
-
-					<div class="place-meta-item">
-						<i class="icon icon-phone-old"></i>
-						<a href="" class="link-gray">
-							<strong id="initPhone" onclick="ShowPhone()">Bấm vào để xem</strong>
-							<strong id="ShowPhone"></strong>
-						</a>
-					</div>
-
-					<div class="place-meta-item">
-						<i class="icon icon-time"></i>
-						<span class="itsclosed" title="Nhà hàng | 09:00 AM - 11:00 PM" style="color:red;">
-							Chưa mở cửa
-						</span>
-						<span style="margin-left: 5px;"><label> Resort: </label><span><span>12:30 AM</span> - <span>11:30 PM</span></span><span> | </span><label>Nhà hàng: </label><span><span>09:00 AM</span> - <span>11:00 PM</span></span>
-						</span>
-
-					</div>
-
-					<div class="place-meta-item">
-						<i class="icon icon-tag"></i> Đang cập nhật
 					</div>
 				</div>
 			</div>
